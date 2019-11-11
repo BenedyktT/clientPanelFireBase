@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.scss";
+import AppNavbar from "./components/layouts/AppNavbar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+import store, { rrfProps } from "./store";
+import { ReactReduxFirebaseProvider } from "react-redux-firebase";
+
+import Dashboard from "./components/layouts/Dashboard";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <ReactReduxFirebaseProvider {...rrfProps}>
+        <Router>
+          <div className="App">
+            <AppNavbar />
+            <div className="app-body">
+              <Switch>
+                <Route exact path="/" component={Dashboard} />
+              </Switch>
+            </div>
+          </div>
+        </Router>
+      </ReactReduxFirebaseProvider>
+    </Provider>
   );
 }
 
