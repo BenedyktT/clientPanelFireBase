@@ -208,9 +208,15 @@ table.blueTable td,
 table.blueTable th {
   border: 1px solid #aaaaaa;
   padding: 1rem;
+  @include respond-to(handhelds) {
+    padding: 0.2rem;
+  }
 }
 table.blueTable tbody td {
   font-size: 13px;
+  @include respond-to(handhelds) {
+    font-size: 0.5rem;
+  }
 }
 table.blueTable tr:nth-child(even) {
   background: #292a2c;

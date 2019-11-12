@@ -79,9 +79,8 @@ body {
   margin: 0 auto;
   width: 70%;
   @include respond-to(handhelds) {
-    width: 100%;
     padding: 1rem 0;
-    min-width: inherit;
+    width: 100vw;
   }
   padding: 1rem;
 }
@@ -123,5 +122,92 @@ body {
   grid-gap: 1rem;
   input {
     padding: 0.4rem;
+  }
+}
+
+//client details
+
+.clientdetails-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+}
+
+.client-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 1rem;
+}
+.client-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 1rem;
+}
+
+.client-name {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  background: $contrast-color;
+  padding: 0 1rem;
+  grid-column: 1/-1;
+}
+
+.client-id {
+  padding: 0 1rem;
+  span {
+    color: darken(white, 20%);
+  }
+}
+.client-balance {
+  justify-self: end;
+}
+.balance_red {
+  color: rgb(240, 180, 180);
+}
+.balance_green {
+  color: rgb(147, 211, 147);
+}
+
+.client-contact {
+  margin-top: 1rem;
+  border: 1px solid darken(white, 20%);
+  padding: 1rem;
+  span {
+    color: darken(white, 20%);
+  }
+  hr {
+    opacity: 0.5;
+  }
+}
+
+.client-actions {
+  .btn {
+    margin: 0 0.3rem;
+    color: white;
+  }
+}
+.btn--green {
+  background: green;
+}
+.btn--red {
+  background: rgb(211, 95, 95);
+}
+
+.btn--red:hover,
+.btn--green:hover {
+  color: white !important;
+}
+
+.client-addbalance {
+  justify-self: end;
+  align-self: end;
+  form {
+    display: flex;
+    flex-direction: column;
+    * {
+      margin: 0.5rem 0;
+      padding: 0.3rem 0.5rem;
+    }
   }
 }

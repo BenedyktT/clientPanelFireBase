@@ -51,7 +51,7 @@ class Clients extends Component {
                   <td>{client.phone}</td>
                   <td>${parseFloat(client.balance).toFixed(2)}</td>
                   <td>
-                    <Link to={`client/${client.id}`}>Details</Link>
+                    <Link to={`/client/${client.id}`}>Details</Link>
                   </td>
                 </tr>
               ))}
