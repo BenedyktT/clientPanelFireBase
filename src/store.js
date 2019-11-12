@@ -1,12 +1,13 @@
 import { createStore, combineReducers } from "redux";
 import firebase from "firebase";
+
 import "firebase/auth";
 import "firebase/firestore";
 import { firebaseReducer } from "react-redux-firebase";
 import { createFirestoreInstance, firestoreReducer } from "redux-firestore";
-
+console.log(process.env.API_KEY);
 const firebaseConfig = {
-  apiKey: "AIzaSyAYQ8uT8orecgEBW3Dj4AIMXKUqaDLrJbs",
+  apiKey: process.env.REACT_APP_API_KEY,
   authDomain: "react-client-panel-d5126.firebaseapp.com",
   databaseURL: "https://react-client-panel-d5126.firebaseio.com",
   projectId: "react-client-panel-d5126",
