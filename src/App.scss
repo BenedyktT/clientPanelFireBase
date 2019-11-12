@@ -3,7 +3,6 @@
 body {
   background: $primary-light;
   width: 100vw;
-  overflow: hidden;
 }
 .header {
   justify-content: space-between;
@@ -77,26 +76,52 @@ body {
   background: lighten($color: $primary-light, $amount: 10%);
   opacity: 0.8;
   color: white;
-  display: grid;
-  grid-template-columns: 1fr;
   margin: 0 auto;
   width: 70%;
   @include respond-to(handhelds) {
     width: 100%;
+    padding: 1rem 0;
+    min-width: inherit;
   }
   padding: 1rem;
 }
 
 .dashboard-wrapper {
   display: grid;
-  grid-template-columns: 1fr 20%;
+  grid-template-columns: 1fr 25%;
+  @include respond-to(handhelds) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .column {
   margin: 1rem;
+  @include respond-to(handhelds) {
+    grid-column-start: 1;
+    grid-row-start: 1;
+  }
 }
 
 .total-owed {
   float: right;
   margin: 1rem;
+}
+
+.add-client-cont {
+  width: 80%;
+  flex-basis: 100%;
+  margin: 1.4rem;
+}
+.add-client__body {
+  margin: 1.4rem;
+}
+
+.add-client__form {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100%;
+  grid-gap: 1rem;
+  input {
+    padding: 0.4rem;
+  }
 }

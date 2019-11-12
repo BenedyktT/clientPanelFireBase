@@ -7,6 +7,7 @@ import store, { rrfProps } from "./store";
 import { ReactReduxFirebaseProvider } from "react-redux-firebase";
 
 import Dashboard from "./components/layouts/Dashboard";
+import AddClient from "./components/clients/AddClient";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <div className="app-body">
               <Switch>
                 <Route exact path="/" component={Dashboard} />
+                <Route exact path="/client/add" component={AddClient} />
               </Switch>
             </div>
           </div>
