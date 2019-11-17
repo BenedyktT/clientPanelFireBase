@@ -211,3 +211,72 @@ body {
     }
   }
 }
+
+.login {
+  overflow: hidden;
+  width: 60%;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  label {
+  }
+}
+.login__form {
+  justify-content: center;
+  margin-top: 1.5rem;
+  display: grid;
+  grid-auto-columns: 50%;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.login-el {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  * {
+    margin: 0.5rem 0;
+  }
+}
+.user-name--small {
+  font-size: 0.6rem;
+}
+
+.login-link {
+  padding: 0 !important;
+}
+
+.login-submit {
+  grid-column: 2/-1;
+}
+.alert {
+  padding: 1rem;
+  color: white;
+  margin-bottom: 1rem;
+
+  width: 100%;
+}
+.alert-success {
+  background: green;
+}
+
+.alert-danger {
+  background: red;
+}
+
+.settings-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+  .form-group {
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}

@@ -1,11 +1,10 @@
-import { createStore, combineReducers } from "redux";
+import { createStore } from "redux";
 import firebase from "firebase";
-
+import rootReducer from "./reducers/rootReducer";
 import "firebase/auth";
 import "firebase/firestore";
-import { firebaseReducer } from "react-redux-firebase";
-import { createFirestoreInstance, firestoreReducer } from "redux-firestore";
-console.log(process.env.API_KEY);
+
+import { createFirestoreInstance } from "redux-firestore";
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
   authDomain: "react-client-panel-d5126.firebaseapp.com",
@@ -23,19 +22,21 @@ const rrfConfig = {
 
 firebase.initializeApp(firebaseConfig);
 firebase.firestore();
-
-const rootReducer = combineReducers({
-  firebase: firebaseReducer,
-  firestore: firestoreReducer
-});
-
-const initialState = {};
-
+if (!localStorage.getItem("settings")) {
+  const initialSettings = {
+    disableBalanceOnAdd: true,
+    disableBalanceOnEdit: false,
+    allowRegistration: true
+  };
+  localStorage.setItem("settings", JSON.stringify(initialSettings));
+}
+const initialState = { settings: JSON.parse(localStorage.getItem("settings")) };
 const store = createStore(
   rootReducer,
   initialState,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
+
 export const rrfProps = {
   firebase,
   config: rrfConfig,
